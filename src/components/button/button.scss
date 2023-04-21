@@ -1,0 +1,49 @@
+.button {
+	max-width: 300px;
+
+	transition: 0.3s ease;
+	padding: 16px 32px;
+
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.2px;
+
+	&.primary {
+		&:enabled:hover {
+			background-color: #5360CD;
+		}
+
+		color: #FFFFFF;
+		background: #2231AA;
+		border-radius: 2px;
+	}
+
+	&.secondary {
+		&:enabled:hover {
+			background-color: #DADADA;
+		}
+
+		color: #313037;
+		background: #E8E8E8;
+	}
+
+	&.secondary2 {
+		&:enabled:hover {
+			border: #DADADA 1px solid;
+		}
+
+		&.disabled {
+			background-color: transparent;
+		}
+
+		color: #FD3419;
+		border: transparent 1px solid;
+		background-color: transparent;
+	}
+
+	&.disabled {
+		background-color: #E8E8E8;
+		color: #8D8E97;
+	}
+}

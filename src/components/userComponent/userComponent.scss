@@ -1,0 +1,23 @@
+.userComponent {
+	background-color: #2231AA;
+	font-weight: 600;
+	line-height: 34px;
+	padding: 18px 30px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFF;
+
+	.iconUserName {
+		background: #5360CD;
+		border-radius: 2px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 6px 11px;
+	}
+
+	.userName {
+		padding: 0 0 0 16px;
+	}
+}
