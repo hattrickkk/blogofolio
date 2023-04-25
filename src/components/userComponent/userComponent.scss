@@ -1,5 +1,7 @@
+@use '../../assets/variable.scss' as *;
+
 .userComponent {
-	background-color: #2231AA;
+	background-color: $primary;
 	font-weight: 600;
 	line-height: 34px;
 	padding: 18px 30px;
@@ -9,7 +11,7 @@
 	color: #FFF;
 
 	.iconUserName {
-		background: #5360CD;
+		background: $primary2;
 		border-radius: 2px;
 		display: flex;
 		align-items: center;

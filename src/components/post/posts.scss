@@ -1,0 +1,185 @@
+@use '../../assets/variable.scss' as *;
+
+.postContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(6, 226px);
+
+	grid-column-gap: 30px;
+	grid-row-gap: 20px;
+}
+
+.post {
+	margin: 0 0 30px 0;
+	border-bottom: $medium 2px solid;
+
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__info {
+		padding: 0 32px 0 0;
+		flex: 1 1 450px;
+		font-size: 16px;
+		color: $gray;
+
+		.post__date {
+			margin: 0 0 8px 0;
+		}
+
+		.post__title {
+			&:hover {
+				color: $primary;
+			}
+
+			cursor: pointer;
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 44px;
+			color: $black;
+			margin: 0 0 24px 0;
+		}
+
+		.post__text {
+			line-height: 28px;
+		}
+	}
+
+	&__photo {
+		flex: 0 0 256px;
+
+		img {
+			width: 256px;
+			height: 244px;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&__icons {
+		padding: 20px 0 0 0;
+		flex-basis: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		.post__icons-column {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			img {
+				cursor: pointer;
+
+				&:not(:last-child) {
+					margin: 0 30px 0 0;
+				}
+			}
+
+			.button.dislike {
+				margin: 0 0 0 20px;
+			}
+
+			.post__count {
+				padding: 20px 0 0 0;
+
+
+				font-weight: 700;
+				margin: 0 0 20px 0;
+
+				&.visible {
+					visibility: visible;
+				}
+
+				&.hidden {
+					visibility: hidden;
+				}
+			}
+
+		}
+	}
+
+}
+
+.post.post.post--big {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+.post.post--medium {
+	grid-row: span 2;
+
+	.post__info {
+		padding: 0;
+		flex: 100%;
+
+		.post__title {
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 28px;
+
+			margin: 0;
+		}
+
+		.post__text {
+			display: none;
+		}
+	}
+
+	.post__photo {
+		order: -1;
+		flex: 0 0 100%;
+		margin: 0 0 20px 0;
+
+		img {
+			width: 100%;
+			height: 246px;
+		}
+	}
+
+}
+
+.post.post--small {
+	.post__inner {
+		padding: 0;
+	}
+
+	.post__info {
+		flex: 1 1 222px;
+
+		.post__title {
+			cursor: pointer;
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 28px;
+			margin: 0;
+		}
+
+		.post__text {
+			display: none;
+		}
+	}
+
+	.post__photo {
+		flex: 0 0 96px;
+
+		img {
+			width: 96px;
+			height: 96px;
+		}
+	}
+
+	.post__icons {
+
+		padding: 10px 0 0 0;
+
+		.post__icons-column {
+
+			img {
+				&:not(:last-child) {
+					margin: 0 25px 0 0;
+				}
+			}
+		}
+	}
+}

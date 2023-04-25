@@ -1,43 +1,44 @@
-import React from 'react';
-import Button from './components/button/Button';
+
 import UserComponent from './components/userComponent';
+import Post from './components/post/Posts';
+import PrimaryButton from './components/button/PrimaryButton';
+import SecondaryButton from './components/button/SecondaryButton';
+import Secondary2Button from './components/button/Secondary2Button';
+import LikeButton from './components/button/LikeButton';
+import DislikeButton from './components/button/DislikeButton';
 
 function App() {
   return (
-    <>
-
+    <div className='container'>
+      <Post />
       <UserComponent userName='Darya Khitrik' />
 
-      <Button
+      <PrimaryButton
         value='Primary'
-        type='primary'
         onClick={() => console.log('sd')}
       />
-
-      <Button
+      <PrimaryButton
         value='Primary'
-        type='primary'
         disabled={true}
       />
-      <Button
+
+      <SecondaryButton
         value='Secondary'
-        type='secondary'
       />
-      <Button
-        disabled={true}
+      <SecondaryButton
         value='Secondary'
-        type='secondary'
-      />
-      <Button
-        value='Secondary2'
-        type='secondary2'
-      />
-      <Button
         disabled={true}
-        value='Secondary2'
-        type='secondary2'
       />
-    </>
+
+      <Secondary2Button
+        value='Secondary2'
+      />
+      <Secondary2Button
+        value='Secondary2'
+        disabled={true}
+      />
+
+    </div>
   )
 }
 

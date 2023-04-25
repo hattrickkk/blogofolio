@@ -1,7 +1,9 @@
+@use '../../assets/variable.scss' as *;
+
 .button {
 	max-width: 300px;
 
-	transition: 0.3s ease;
+	transition: 0.3s ease all;
 	padding: 16px 32px;
 
 	font-weight: 600;
@@ -9,41 +11,66 @@
 	line-height: 24px;
 	letter-spacing: 0.2px;
 
+	&.like,
+	&.dislike {
+		border-radius: 2px;
+		width: 50px;
+		height: 48px;
+	}
+
+	&.like {
+		background: url('../../assets/images/Up-black.svg') center no-repeat;
+
+		&:enabled:hover {
+			background-color: $primary2;
+			background-image: url('../../assets/images/Up-white.svg');
+		}
+	}
+
+	&.dislike {
+		background: url('../../assets/images/Down-black.svg') center no-repeat;
+
+		&:enabled:hover {
+			background-color: $error;
+			background-image: url('../../assets/images/Down-white.svg');
+		}
+	}
+
 	&.primary {
 		&:enabled:hover {
-			background-color: #5360CD;
+			background-color: $primary2;
 		}
 
-		color: #FFFFFF;
-		background: #2231AA;
+		color: $white;
+		background: $primary;
 		border-radius: 2px;
 	}
 
 	&.secondary {
 		&:enabled:hover {
-			background-color: #DADADA;
+			background-color: $medium;
 		}
 
-		color: #313037;
-		background: #E8E8E8;
+		color: $black;
+		background: $light;
 	}
 
 	&.secondary2 {
 		&:enabled:hover {
-			border: #DADADA 1px solid;
+			border: $medium 1px solid;
 		}
 
 		&.disabled {
 			background-color: transparent;
 		}
 
-		color: #FD3419;
+		color: $error;
 		border: transparent 1px solid;
 		background-color: transparent;
 	}
 
 	&.disabled {
-		background-color: #E8E8E8;
-		color: #8D8E97;
+		background-color: $light;
+		color: $gray;
 	}
 }
