@@ -6,12 +6,21 @@ import SecondaryButton from './components/button/SecondaryButton';
 import Secondary2Button from './components/button/Secondary2Button';
 import LikeButton from './components/button/LikeButton';
 import DislikeButton from './components/button/DislikeButton';
+import PaginationButton from './components/pagination/paginationButton.tsx/PaginationButton';
+import Pagination from './components/pagination/paginationButton.tsx/Pagination';
+import Tabs from './components/tabs/tabs';
 
 function App() {
   return (
-    <div className='container'>
-      <Post />
+    <div>
+
+
+      <Tabs />
+
       <UserComponent userName='Darya Khitrik' />
+      <Pagination />
+
+
 
       <PrimaryButton
         value='Primary'

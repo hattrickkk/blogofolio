@@ -21,7 +21,7 @@
 	&.like {
 		background: url('../../assets/images/Up-black.svg') center no-repeat;
 
-		&:enabled:hover {
+		&.like--hover:enabled:hover {
 			background-color: $primary2;
 			background-image: url('../../assets/images/Up-white.svg');
 		}
@@ -30,7 +30,7 @@
 	&.dislike {
 		background: url('../../assets/images/Down-black.svg') center no-repeat;
 
-		&:enabled:hover {
+		&.dislike--hover:enabled:hover {
 			background-color: $error;
 			background-image: url('../../assets/images/Down-white.svg');
 		}

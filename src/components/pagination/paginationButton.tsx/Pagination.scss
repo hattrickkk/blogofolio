@@ -1,0 +1,49 @@
+@use '../../../assets/variable.scss' as *;
+
+.pagination {
+
+	&__button {
+		font-weight: 600;
+		color: $black;
+		text-transform: capitalize;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		max-width: 70px;
+
+		&--next {
+			&::after {
+				content: "";
+				padding: 10px;
+				background: url('../../../assets/images/arrow-next.svg') center no-repeat;
+			}
+
+			span {
+				padding: 0 11px 0 0;
+			}
+
+			&:active {
+				color: $black;
+			}
+		}
+
+		&--prev {
+			color: $gray;
+
+			&::before {
+				content: "";
+				padding: 10px;
+				background: url('../../../assets/images/arrow-prev.svg') center no-repeat;
+			}
+
+			span {
+				padding: 0 0 0 11px;
+			}
+
+			&:active {
+				color: $gray;
+			}
+		}
+	}
+}

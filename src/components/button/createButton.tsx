@@ -13,7 +13,10 @@ export const createButton = (type: TypeBtn) => {
 
 	const Button = (props: PropsType) => {
 
-		const classNames = [props.className, type]
+		const classNames: string[] = [type]
+		if (props.className) {
+			classNames.push(props.className)
+		}
 		if (props.disabled) {
 			classNames.push('disabled')
 		}

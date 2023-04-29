@@ -1,7 +1,5 @@
-import React, { ImgHTMLAttributes, useCallback, useState } from 'react'
+import React, { ImgHTMLAttributes, useState } from 'react'
 import { IPost } from '../../models'
-// import like from '../../assets/images/Icon-Thumbs-Up.svg'
-// import dislike from '../../assets/images/Down.svg'
 import bookmark from '../../assets/images/Bookmark.svg'
 import moreIcon from '../../assets/images/More-Horizontal.svg'
 import LikeButton from '../button/LikeButton'

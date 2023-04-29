@@ -12,10 +12,12 @@
 .post {
 	margin: 0 0 30px 0;
 	border-bottom: $medium 2px solid;
+	padding: 0 0 15px 0;
 
 	&__inner {
 		display: flex;
 		flex-wrap: wrap;
+		min-height: 100%;
 	}
 
 	&__info {
@@ -58,8 +60,9 @@
 	}
 
 	&__icons {
-		padding: 20px 0 0 0;
-		flex-basis: 100%;
+		align-self: flex-end;
+		padding: 10px 0 0 0;
+		flex: 0 0 100%;
 		display: flex;
 		justify-content: space-between;
 
@@ -76,16 +79,16 @@
 				}
 			}
 
-			.button.dislike {
-				margin: 0 0 0 20px;
+			.button {
+				padding: 16px 0;
+
+				&.dislike {
+					margin: 0 0 0 20px;
+				}
 			}
 
 			.post__count {
-				padding: 20px 0 0 0;
-
-
 				font-weight: 700;
-				margin: 0 0 20px 0;
 
 				&.visible {
 					visibility: visible;
