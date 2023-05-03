@@ -1,3 +1,4 @@
+@use './assets/variable.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Kaushan+Script&family=Montserrat:wght@700&display=swap');
 @import './nullStyle.scss';
 
@@ -8,10 +9,17 @@ body {
 	font-weight: 400;
 	line-height: 24px;
 	font-size: 16px;
-	// background-color: #E5E5E5;
+	background-color: $extralight;
 }
 
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.container1920 {
+	max-width: 1920px;
+	margin: 0 auto;
+	box-sizing: border-box;
 }

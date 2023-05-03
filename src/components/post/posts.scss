@@ -31,6 +31,8 @@
 		}
 
 		.post__title {
+			transition: 0.3s ease;
+
 			&:hover {
 				color: $primary;
 			}

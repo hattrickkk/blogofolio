@@ -1,0 +1,213 @@
+@use '../../assets/variable.scss' as *;
+
+
+.header {
+	background-color: $primary;
+
+	&__inner {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__burger-button,
+	&__icon-component {
+		cursor: pointer;
+		background-color: $primary;
+		flex: 0 0 84px;
+	}
+
+	&__burger-button {
+		position: relative;
+		border-right: 3px solid $primary2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		span {
+			position: relative;
+		}
+
+		&::after,
+		&::before,
+		span {
+			content: "";
+			width: 27px;
+			height: 2px;
+			background-color: $white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 2px;
+			transition: 0.4s ease;
+		}
+
+		&::before {
+			transform: translate(-50%, -50%) translateY(-9px);
+		}
+
+		&::after {
+			transform: translate(-50%, -50%) translateY(9px);
+		}
+
+		&.active {
+			span {
+				opacity: 0;
+			}
+
+			&::before {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+
+			&::after {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+	}
+
+	&__userComponent {
+		background-color: $primary;
+		font-weight: 600;
+		line-height: 34px;
+		padding: 18px 30px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: #FFF;
+
+		.iconUserName {
+			background: $primary2;
+			border-radius: 2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 6px 11px;
+		}
+
+		.userName {
+			padding: 0 0 0 16px;
+		}
+	}
+
+	.icon-component {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 84px;
+		cursor: pointer;
+
+		&.search-btn {
+			flex: 0 0 89px;
+			border: 3px solid $primary2;
+			border-bottom: none;
+			border-top: none;
+		}
+
+		img {
+			max-width: 27px;
+		}
+	}
+
+	// search
+	.search {
+		flex: 1 0 450px;
+		transition: 0.2s linear;
+
+		&.active {
+			opacity: 0;
+		}
+
+		&__inner {
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__field {
+			position: relative;
+
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			opacity: 0;
+			transition: 0.3s ease;
+			pointer-events: none;
+
+			&.active {
+				pointer-events: visible;
+				opacity: 1;
+			}
+		}
+
+		&__input {
+			background-color: $primary2;
+			padding: 30px 32px;
+			font-size: 16px;
+			color: $white;
+			flex: 1 0 200px;
+
+			&::placeholder {
+				color: $white;
+			}
+		}
+
+		&__button-del {
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			right: 40px;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: 0.3s linear;
+			cursor: pointer;
+
+			&:hover {
+				background-color: rgba($color: $light, $alpha: 0.2);
+			}
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 17px;
+				height: 2px;
+				background-color: $white;
+				border-radius: 2px;
+			}
+
+			&::before {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+
+			&::after {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+
+	}
+
+	// menu
+	.menu {
+		border-top: 3px solid $primary2;
+		position: absolute;
+		z-index: 1;
+		background-color: $white;
+		// width: 200px;
+		height: 100vh;
+		transition: 0.4s ease;
+
+		&.open {
+			left: 0;
+		}
+
+		&.close {
+			left: -100%;
+		}
+	}
+
+
+}

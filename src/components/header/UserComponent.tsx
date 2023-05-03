@@ -1,5 +1,4 @@
 import React from 'react'
-import './userComponent.scss'
 
 type UserComponentType = {
 	userName: string
@@ -13,7 +12,7 @@ const UserComponent = ({ userName }: UserComponentType) => {
 		.toUpperCase()
 
 	return (
-		<div className='userComponent'>
+		<div className='header__userComponent'>
 			<div className='iconUserName'>{iconUserName}</div>
 			<p className='userName'>{userName}</p>
 		</div>
