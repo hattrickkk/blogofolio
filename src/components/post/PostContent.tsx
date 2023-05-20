@@ -2,8 +2,8 @@ import React, { ImgHTMLAttributes, useState } from 'react'
 import { IPost } from '../../models'
 import bookmark from '../../assets/images/Bookmark.svg'
 import moreIcon from '../../assets/images/More-Horizontal.svg'
-import LikeButton from '../button/LikeButton'
-import DislikeButton from '../button/DislikeButton'
+import LikeButton from '../../IU/button/LikeButton'
+import DislikeButton from '../../IU/button/DislikeButton'
 
 type PropsType = {
 	post: IPost;

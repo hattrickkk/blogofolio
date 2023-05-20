@@ -1,7 +1,7 @@
-@use '../../assets/variable.scss' as *;
+@use '../../styles/variable.scss' as *;
 
 .button {
-	max-width: 300px;
+	// max-width: 300px;
 
 	transition: 0.3s ease all;
 	padding: 16px 32px;

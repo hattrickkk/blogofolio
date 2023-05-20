@@ -1,0 +1,13 @@
+@use '../../styles/variable.scss' as *;
+
+.input {
+	&:focus {
+		outline: 2px solid $medium;
+	}
+
+	border-radius: 2px;
+	font-size: 16px;
+	line-height: 20px;
+	padding: 18px 20px;
+	width: 100%;
+}

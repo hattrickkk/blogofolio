@@ -28,7 +28,12 @@ const Header = () => {
 						reff={burgerButtonRef}
 					/>
 					<Search />
-					{(true) ? <UserIconComponent /> : <UserComponent userName='Darya Khitrik' />}
+
+					{(true)
+						? <UserIconComponent />
+						: <UserComponent userName='Darya Khitrik' />
+					}
+
 				</div>
 				<BurgerMenu
 					className={(isOpen) ? 'open' : 'close'}

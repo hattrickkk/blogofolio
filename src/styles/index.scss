@@ -1,4 +1,4 @@
-@use './assets/variable.scss' as *;
+@use './variable.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Kaushan+Script&family=Montserrat:wght@700&display=swap');
 @import './nullStyle.scss';
 
@@ -14,12 +14,23 @@ body {
 
 .container {
 	max-width: 1200px;
+	padding: 0 40px;
 	margin: 0 auto;
 	box-sizing: border-box;
+}
+
+@media screen and (max-width: 420px) {
+	.container {
+		padding: 0 24px;
+	}
 }
 
 .container1920 {
 	max-width: 1920px;
 	margin: 0 auto;
 	box-sizing: border-box;
+}
+
+#root {
+	overflow: hidden;
 }

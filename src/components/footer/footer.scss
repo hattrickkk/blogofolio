@@ -1,0 +1,20 @@
+@use '../../styles/variable.scss' as *;
+
+.footer {
+	&__inner {
+		border-top: 1px solid $medium;
+
+		p {
+			&:last-child {
+				text-align: right;
+				padding: 33px 0 33px 18px;
+			}
+
+			color: $gray;
+			padding: 33px 0;
+		}
+
+		display: flex;
+		justify-content: space-between;
+	}
+}

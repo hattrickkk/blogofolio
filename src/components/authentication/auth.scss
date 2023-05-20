@@ -1,0 +1,139 @@
+@use '../../styles/variable.scss' as *;
+
+.sign-in {
+	padding: 72px 0 150px 0;
+
+	&__link {
+		margin: 0 0 48px 0;
+	}
+
+	&__fields {
+		margin: 0 0 16px 0;
+	}
+}
+
+.sign-up {
+	padding: 72px 0;
+
+	&__fields {
+		margin: 0 0 48px 0;
+	}
+}
+
+.sign-up__button,
+.sign-in__button {
+	margin: 0 0 24px 0;
+	width: 100%;
+}
+
+.sign-in__title,
+.sign-up__title {
+	margin: 0 0 72px 0;
+}
+
+
+.inner-box {
+	padding: 40px;
+	border: 1px solid $medium;
+	max-width: 624px;
+	margin: 0 auto;
+
+	.link {
+		&:hover {
+			color: $primary;
+		}
+
+		color: $black;
+		line-height: 20px;
+		transition: 0.2s linear;
+		display: block;
+	}
+
+	.label-link {
+		color: $gray;
+		text-align: center;
+
+		a {
+			&:hover {
+				color: rgb(64, 28, 126);
+			}
+
+			transition: 0.2s linear all;
+			color: $primary;
+		}
+	}
+
+	.fields {
+		&>*:not(:last-child) {
+			margin: 0 0 40px 0;
+		}
+
+		.field {
+			&-label {
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 20px;
+				margin: 0 0 8px 0;
+			}
+
+			&-input {}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+	.sign-in__title,
+	.sign-up__title {
+		margin: 0 0 56px 0;
+	}
+
+	.sign-in {
+		padding: 72px 0 112px 0;
+	}
+}
+
+@media screen and (max-width: 320px) {
+
+	.sign-in__title,
+	.sign-up__title {
+		margin: 0 0 48px 0;
+	}
+
+	.sign-in,
+	.sign-up {
+		padding: 56px 0;
+	}
+
+	.sign-in {
+		&__link {
+			margin: 0 0 36px 0;
+		}
+	}
+
+	.sign-up {
+		&__fields {
+			margin: 0 0 36px 0;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.inner-box {
+		max-width: none;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.inner-box {
+		padding: 25px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.fields {
+		&>*:not(:last-child) {
+			margin: 0 0 32px 0;
+		}
+	}
+}

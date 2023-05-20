@@ -1,0 +1,13 @@
+.title {
+	font-weight: 700;
+	font-size: 56px;
+	line-height: 80px;
+	text-transform: capitalize;
+}
+
+@media screen and (max-width: 320px) {
+	.title {
+		font-size: 32px;
+		line-height: 48px;
+	}
+}

@@ -1,3 +1,6 @@
+
+import { Link } from 'react-router-dom'
+
 type Props = {
 	className?: string
 	onClick?: () => void
@@ -8,7 +11,8 @@ export const createIconComponent = (pic: string, type: string) => {
 	const IconComponent = ({ className, onClick }: Props) => {
 		const nameOfClass = (!className) ? 'icon-component' : `icon-component ${className}`
 		return (
-			<div
+			<Link
+				to={'/sign-in'}
 				className={nameOfClass}
 				onClick={onClick}
 			>
@@ -16,7 +20,7 @@ export const createIconComponent = (pic: string, type: string) => {
 					src={pic}
 					alt={`${type} icon`}
 				/>
-			</div >
+			</Link >
 		)
 	}
 

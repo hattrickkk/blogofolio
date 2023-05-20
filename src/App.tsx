@@ -1,26 +1,40 @@
 
 import UserComponent from './components/header/UserComponent';
 
-import PrimaryButton from './components/button/PrimaryButton';
-import SecondaryButton from './components/button/SecondaryButton';
-import Secondary2Button from './components/button/Secondary2Button';
+import PrimaryButton from './IU/button/PrimaryButton';
+import SecondaryButton from './IU/button/SecondaryButton';
+import Secondary2Button from './IU/button/Secondary2Button';
 
-import Pagination from './components/pagination/paginationButton.tsx/Pagination';
 import Tabs from './components/tabs/tabs';
-import Header from './components/header/Header';
-import BurgerMenu from './components/header/BurgerMenu/BurgerMenu';
+
+
+import { Routes, Route } from 'react-router-dom'
+import Layout from "./components/layout/Layout"
+
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
 
 function App() {
   return (
     <div>
 
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Tabs />} />
+          <Route path='sign-in' element={<SignInPage />} />
+          <Route path='sign-up' element={<SignUpPage />} />
+          <Route path='reset-password' element={<SignInPage />} />
+        </Route>
+      </Routes>
+
+
+
+      {/* 
       <Header />
 
       <Tabs />
 
       <Pagination />
-
-
 
       <PrimaryButton
         value='Primary'
@@ -45,7 +59,7 @@ function App() {
       <Secondary2Button
         value='Secondary2'
         disabled={true}
-      />
+      /> */}
 
     </div>
   )
