@@ -1,4 +1,4 @@
-export interface IPost {
+export type PostType = {
 	id: number
 	image: string
 	text: string
@@ -7,4 +7,13 @@ export interface IPost {
 	title: string,
 	description: string
 	author: string
+}
+
+export type UserType = {
+	id: string
+	username: string
+	email: string
+}
+export type ErrorMessageType = {
+	[key: string]: string[] | string
 }

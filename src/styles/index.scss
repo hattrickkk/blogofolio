@@ -1,5 +1,5 @@
 @use './variable.scss' as *;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Kaushan+Script&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Kaushan+Script&family=Montserrat:wght@700&display=swap');
 @import './nullStyle.scss';
 
 body {
@@ -33,4 +33,19 @@ body {
 
 #root {
 	overflow: hidden;
+}
+
+.dark {
+	background-color: $black;
+	color: $white;
+
+	// .link {
+	// 	color: $white;
+	// }
+
+}
+
+.light {
+	background-color: $extralight;
+	color: $black;
 }

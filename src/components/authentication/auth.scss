@@ -20,17 +20,140 @@
 	}
 }
 
+.reset-password {
+	padding: 72px 0 356px 0;
+
+	&__fields {
+		margin: 0 0 48px 0;
+	}
+}
+
+.new-password {
+	padding: 72px 0 224px 0;
+
+	&__fields {
+		margin: 0 0 48px 0;
+	}
+}
+
+.reg-confirmation {
+	padding: 72px 0 368px 0;
+
+	&__text {
+		margin: 0 0 48px 0;
+	}
+}
+
+.success {
+	padding: 72px 0 392px 0;
+
+	&__text {
+		margin: 0 0 48px 0;
+	}
+}
+
 .sign-up__button,
-.sign-in__button {
+.sign-in__button,
+.reset-password__button,
+.new-password__button,
+.reg-confirmation__button,
+.success__button {
 	margin: 0 0 24px 0;
 	width: 100%;
 }
 
 .sign-in__title,
-.sign-up__title {
+.sign-up__title,
+.reset-password__title,
+.new-password__title,
+.reg-confirmation__title,
+.success__title {
 	margin: 0 0 72px 0;
 }
 
+
+
+@media screen and (max-width: 768px) {
+
+	.sign-in__title,
+	.sign-up__title,
+	.reset-password__title,
+	.new-password__title,
+	.reg-confirmation__title,
+	.success__title {
+		margin: 0 0 56px 0;
+	}
+
+	.sign-in {
+		padding: 72px 0 112px 0;
+	}
+
+	.reset-password,
+	.success {
+		padding: 72px 0 316px 0;
+	}
+
+	.new-password {
+		padding: 72px 0 184px 0;
+	}
+
+	.reg-confirmation {
+		padding: 72px 0 248px 0;
+	}
+
+}
+
+@media screen and (max-width: 420px) {
+	.reg-confirmation__title {
+		font-size: 32px;
+		line-height: 48px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+
+	.sign-in__title,
+	.sign-up__title,
+	.reset-password__title,
+	.new-password__title,
+	.reg-confirmation__title,
+	.success__title {
+		margin: 0 0 48px 0;
+	}
+
+	.sign-in,
+	.sign-up,
+	.reset-password,
+	.new-password,
+	.reg-confirmation,
+	.success {
+		padding: 56px 0;
+	}
+
+	.sign-in {
+		&__link {
+			margin: 0px 0 36px 0;
+		}
+	}
+
+	.sign-up__fields,
+	.reset-password__fields,
+	.new-password__fields,
+	.reg-confirmation__text,
+	.success__text {
+		margin: 0 0 36px 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+// -----------------------
 
 .inner-box {
 	padding: 40px;
@@ -46,7 +169,7 @@
 		color: $black;
 		line-height: 20px;
 		transition: 0.2s linear;
-		display: block;
+		display: inline-block;
 	}
 
 	.label-link {
@@ -63,12 +186,21 @@
 		}
 	}
 
-	.fields {
-		&>*:not(:last-child) {
-			margin: 0 0 40px 0;
-		}
+	.text {
+		text-align: justify;
 
+		span {
+			font-weight: 700;
+		}
+	}
+
+	.fields {
 		.field {
+			&:not(:last-child) {
+				margin: 0 0 40px 0;
+			}
+
+
 			&-label {
 				font-weight: 600;
 				font-size: 16px;
@@ -81,42 +213,6 @@
 	}
 }
 
-@media screen and (max-width: 768px) {
-
-	.sign-in__title,
-	.sign-up__title {
-		margin: 0 0 56px 0;
-	}
-
-	.sign-in {
-		padding: 72px 0 112px 0;
-	}
-}
-
-@media screen and (max-width: 320px) {
-
-	.sign-in__title,
-	.sign-up__title {
-		margin: 0 0 48px 0;
-	}
-
-	.sign-in,
-	.sign-up {
-		padding: 56px 0;
-	}
-
-	.sign-in {
-		&__link {
-			margin: 0 0 36px 0;
-		}
-	}
-
-	.sign-up {
-		&__fields {
-			margin: 0 0 36px 0;
-		}
-	}
-}
 
 @media screen and (max-width: 768px) {
 	.inner-box {
@@ -131,9 +227,7 @@
 }
 
 @media screen and (max-width: 320px) {
-	.fields {
-		&>*:not(:last-child) {
-			margin: 0 0 32px 0;
-		}
+	.field:not(:last-child) {
+		margin: 0 0 32px 0;
 	}
 }

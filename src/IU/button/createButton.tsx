@@ -7,6 +7,7 @@ type PropsType = {
 	onClick?: () => void
 	disabled?: boolean
 	className?: string
+	type?: 'button' | 'reset' | 'submit'
 }
 
 export const createButton = (type: TypeBtn) => {
@@ -24,6 +25,7 @@ export const createButton = (type: TypeBtn) => {
 		return (
 			<button
 				disabled={props.disabled}
+				type={props.type}
 				className={`button ${classNames.join(' ')}`}
 				onClick={props.onClick}
 			>

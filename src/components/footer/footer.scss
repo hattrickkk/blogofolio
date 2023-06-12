@@ -1,20 +1,31 @@
 @use '../../styles/variable.scss' as *;
 
 .footer {
+	border-top: 1px solid $medium;
+	padding: 33px 0 34px 0;
+
 	&__inner {
-		border-top: 1px solid $medium;
-
 		p {
-			&:last-child {
-				text-align: right;
-				padding: 33px 0 33px 18px;
-			}
-
 			color: $gray;
-			padding: 33px 0;
 		}
 
 		display: flex;
 		justify-content: space-between;
+	}
+}
+
+@media screen and (max-width: 340px) {
+	.footer {
+		&__inner {
+			p {
+				&:not(:last-child) {
+					margin: 0 0 24px 0;
+				}
+
+				text-align: center;
+			}
+
+			flex-direction: column;
+		}
 	}
 }

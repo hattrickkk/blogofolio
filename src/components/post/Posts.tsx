@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import { getPosts } from '../../services/getPosts'
-import { IPost } from '../../models'
+import { PostType } from '../../models'
 import PostContent from './PostContent'
 import './posts.scss'
+import { loadPosts } from '../../store/posts/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectPosts } from '../../store/posts/selectors'
+import { AppDispatch } from '../../store'
 
-const posts2: IPost[] = [{
+const posts2: PostType[] = [{
 	"id": 1,
 	"image": "https://images.unsplash.com/photo-1618530130946-08e764345b83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGFzdHJvbmF1dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
 	"text": "Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.",
@@ -116,20 +120,31 @@ const posts2: IPost[] = [{
 type Sizetype = 'small' | 'big' | 'medium'
 
 const Posts = () => {
-	const [posts, setPosts] = useState<IPost[]>([])
-	const [limit, setLimit] = useState(11)
-	const [offset, setOffset] = useState(0)
+	// const [posts, setPosts] = useState<PostType[]>([])
+	// const [limit, setLimit] = useState(11)
+	// const [offset, setOffset] = useState(0)
+
+	// useEffect(() => {
+	// 	getPosts()
+	// 		.then(res => setPosts(res))
+	// }, [limit, offset])
+
+	const postsState = useSelector(selectPosts)
+	const dispatch = useDispatch<AppDispatch>()
 
 	useEffect(() => {
-		getPosts()
-			.then(res => setPosts(res))
-	}, [limit, offset])
+		// getPosts().then(res => dispatch(loadPosts(res)))
+		// dispatch(loadPosts2())
+		dispatch(loadPosts())
+	}, [])
+
+
 
 	const arrOfSizes: Sizetype[] = ['big', 'small', 'small', 'medium', 'medium', 'small', 'small', 'medium', 'medium', 'small', 'small']
 
 	return (
-		<div className='postContainer container'>
-			{posts2.map((elem, i) => (
+		<div className='postContainer'>
+			{postsState.list.map((elem, i) => (
 				<PostContent
 					size={arrOfSizes[i]}
 					post={elem}

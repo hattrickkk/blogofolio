@@ -1,0 +1,7 @@
+@use '../../styles/variable.scss' as *;
+
+.error-label {
+	color: $error;
+	margin: -30px 0 30px 0;
+	text-align: justify;
+}
