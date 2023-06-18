@@ -4,12 +4,14 @@ import { themeReducer } from "./theme/reducer";
 import { postsReducer } from "./posts/reducer";
 import thunkMiddleware, { ThunkAction } from "redux-thunk";
 import { regReducer } from "./registration/reducer";
+import { activationReducer } from "./activation/reducer";
 
 
 const rootReducer = combineReducers({
 	themeReducer: themeReducer,
 	posts: postsReducer,
-	registration: regReducer
+	registration: regReducer,
+	activation: activationReducer
 })
 
 export const store = configureStore({

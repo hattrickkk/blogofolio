@@ -6,5 +6,5 @@ export type PostsStateType = {
 
 export type PostsActionType = {
 	type: string
-	payload: PostType[] 
+	payload: PostType[] | number
 }

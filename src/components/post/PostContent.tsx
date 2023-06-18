@@ -4,6 +4,9 @@ import bookmark from '../../assets/images/Bookmark.svg'
 import moreIcon from '../../assets/images/More-Horizontal.svg'
 import LikeButton from '../../IU/button/LikeButton'
 import DislikeButton from '../../IU/button/DislikeButton'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../store'
+import { dislikePostAction, likePostAction } from '../../store/posts/actions'
 
 type PropsType = {
 	post: PostType;
@@ -15,15 +18,20 @@ const PostContent = ({ post, size }: PropsType) => {
 	const [isLiked, setIsLiked] = useState(false)
 	const [isDisliked, setIsDisliked] = useState(false)
 
-	const reactionClickHandler = (r: boolean) => {
-		if (r) {
-			setIsLiked(prev => !prev)
-			setIsDisliked(false)
-		} else {
-			setIsLiked(false)
-			setIsDisliked(prev => !prev)
-		}
+	const dispatch = useDispatch<AppDispatch>()
+	const likePostHandler = () => {
+		dispatch(likePostAction(post.id))
+		setIsDisliked(false)
+		setIsLiked(prev => !prev)
+
 	}
+	const dislikePostHandler = () => {
+		dispatch(dislikePostAction(post.id))
+		setIsLiked(false)
+		setIsDisliked(prev => !prev)
+
+	}
+
 
 	return (
 		<div className={`post post--${size}`} >
@@ -38,18 +46,13 @@ const PostContent = ({ post, size }: PropsType) => {
 				</div>
 				<div className='post__icons'>
 					<div className="post__icons-column">
-						<LikeButton onClick={() => { reactionClickHandler(true) }} />
-						{
-							(isLiked)
-								? <span className='post__count visible'>1</span>
-								: <span className='post__count hidden'>1</span>
-						}
-						<DislikeButton onClick={() => { reactionClickHandler(false) }} />
-						{
-							(isDisliked)
-								? <span className='post__count visible'>1</span>
-								: <span className='post__count hidden'>1</span>
-						}
+
+						<LikeButton clickHandler={likePostHandler} isLiked={isLiked} />
+						<span className='post__count'>{post.likes}</span>
+
+						<DislikeButton clickHandler={dislikePostHandler} isDisliked={isDisliked} />
+						<span className='post__count'>{post.dislikes}</span>
+
 					</div>
 					<div className="post__icons-column">
 						<img src={bookmark} alt='bookmark' />

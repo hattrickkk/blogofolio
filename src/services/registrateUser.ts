@@ -6,7 +6,7 @@ type RegistrationResponseType = {
 	data: UserType | ErrorMessageType | string
 }
 
-export const registrateUser = async (username: string, email: string, password: string) /* :Promise<RegistrationResponseType> */ => {
+export const registrateUser = async (username: string, email: string, password: string): Promise<RegistrationResponseType> => {
 	const url = 'https://studapi.teachmeskills.by/auth/users/'
 	const options = {
 		method: 'POST',

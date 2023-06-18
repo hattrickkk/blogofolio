@@ -7,7 +7,7 @@ import { registrateUser } from "../../services/registrateUser";
 export const registrationActionName: {
 	[key: string]: string
 } = {
-	REG_SUCCES: 'REGISTRATION_SUCCES',
+	REG_SUCCES: 'REGISTRATION_SUCCESS',
 	REG_FAILED: 'REGISTRATION_FAILED'
 }
 
@@ -18,7 +18,7 @@ const successRegistration = (user: UserType): RegistrationActionType => {
 	}
 }
 
-const failedRegistration = (errors: ErrorMessageType | string): RegistrationActionType => {
+const failedRegistration = (errors: ErrorMessageType): RegistrationActionType => {
 	return {
 		type: registrationActionName.REG_FAILED,
 		payload: errors
@@ -30,13 +30,15 @@ export const registrationAction = (username: string, email: string, password: st
 		const response = await registrateUser(username, email, password)
 
 		if (!response) {
-			return dispatch(failedRegistration('Неизвестная ошибка'))
+			return dispatch(failedRegistration({
+				errorMessage: 'Неизвестная ошибка'
+			}))
 		}
 		else if (!response.ok) {
-			return dispatch(failedRegistration(response.data))
+			return dispatch(failedRegistration(response.data as ErrorMessageType))
 		}
 
-		dispatch(successRegistration(response.data))
+		dispatch(successRegistration(response.data as UserType))
 		cb && cb()
 	}
 }

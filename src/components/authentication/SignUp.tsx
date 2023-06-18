@@ -6,24 +6,16 @@ import PrimaryButton from '../../IU/button/PrimaryButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, AppState } from '../../store'
 import { registrationAction } from '../../store/registration/actions'
-// import { useSelector } from 'react-redux'
 import ErrorLabel from '../errorLabel/ErrorLabel'
 import FastestValidator from "fastest-validator"
 import { ValidationError } from 'fastest-validator'
-import { ErrorMessageType } from '../../models'
-
-type FormType = {
-	username: string
-	email: string
-	password: string
-	confirmPassword: string
-}
-type FormErrorsType = Partial<Record<keyof FormType, string | string[]>>
+import { ErrorMessageType, FormErrorsType, FormType } from '../../models'
+import { getSignUpValidationObj } from '../../helpers/getSignUpValidationObj'
 
 const SignUp = () => {
 	const v = new FastestValidator();
 	const check = v.compile({
-		username: "string",
+		username: 'string',
 		email: "string",
 		password: "string",
 		confirmPassword: "string"
@@ -35,13 +27,8 @@ const SignUp = () => {
 
 	useEffect(() => {
 		if (errors) {
-			if (typeof errors === 'object') {
-				setFormErrors(errors)
-			}
+			setFormErrors(errors)
 		}
-		// else {
-		// 	// нужно ли сюда закидывать строку....
-		// }
 	}, [errors])
 
 	const [form, setForm] = useState<FormType>({
@@ -65,39 +52,35 @@ const SignUp = () => {
 		const { username, email, password, confirmPassword } = form
 		setFormErrors({})
 
-		// const checkResult = check(form)
+		const validationFormObj: FormErrorsType = getSignUpValidationObj(username, email, password, confirmPassword)
+		const checkResult = check(validationFormObj)
 
-		// if (checkResult === true) {
-		if (password && confirmPassword && (password !== confirmPassword)) {
-			setFormErrors({
-				...formErrors,
-				confirmPassword: 'The entered passwords do not match.'
+		if (checkResult === true) {
+			if (password && confirmPassword && (password !== confirmPassword)) {
+				setFormErrors({
+					...formErrors,
+					confirmPassword: 'The entered passwords do not match.',
+					password: 'The entered passwords do not match.'
+				})
+			}
+
+			const regSuccessFunc = () => navigate('/registration-confirmation', {
+				replace: true,
+				state: email
 			})
-		}
-
-		const regSuccessFunc = () => navigate('/registration-confirmation', {
-			replace: true,
-			state: email
-		})
-		if (username && email && password && (password === confirmPassword)) {
-			dispatch(registrationAction(username, email, password, regSuccessFunc))
+			if (username && email && password && (password === confirmPassword)) {
+				dispatch(registrationAction(username, email, password, regSuccessFunc))
+			}
 		}
 		else {
-			setFormErrors({
-				username: 'заполните',
-				password: 'заполните',
-				confirmPassword: 'заполните',
-				email: 'заполниет'
-			})
+			const validationErrors = checkResult as ValidationError[]
+			const formErrors = validationErrors.reduce((total, current) => {
+				total[current.field] = current.message
+				return total
+			}, {} as any) as FormErrorsType
+
+			setFormErrors(formErrors)
 		}
-
-
-		// }
-		// else {
-		// 	const validationErrors = checkResult as ValidationError[]
-		// 	console.log(validationErrors)
-		// }
-
 	}
 
 
@@ -105,6 +88,7 @@ const SignUp = () => {
 		<div className='sign-up_inner-box inner-box'>
 			<form action="" onSubmit={onFormSubmit}>
 				<div className='sign-up__fields fields'>
+
 					<TextField
 						error={formErrors.username ? true : false}
 						label='Name'

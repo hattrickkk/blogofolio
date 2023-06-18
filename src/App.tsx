@@ -20,6 +20,8 @@ import SuccessPage from './pages/SuccessPage';
 import { useSelector } from 'react-redux';
 import { AppState } from './store';
 import { selectThemeState } from './store/theme/selectors';
+import ActivationPage from './pages/ActivationPage';
+
 
 function App() {
   const themeState = useSelector(selectThemeState)
@@ -33,7 +35,9 @@ function App() {
           <Route path='sign-up' element={<SignUpPage />} />
           <Route path='reset-password' element={<ResetPasswordPage />} />
           <Route path='new-password' element={<NewPasswordPage />} />
+
           <Route path='registration-confirmation' element={<RegistrationConfirmationPage />} />
+          <Route path='activate/:uid/:token' element={<ActivationPage />} />
           <Route path='success' element={<SuccessPage />} />
         </Route>
       </Routes>

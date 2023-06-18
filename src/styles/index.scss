@@ -39,6 +39,13 @@ body {
 	background-color: $black;
 	color: $white;
 
+	.button.like,
+	.button.dislike {
+		svg path {
+			fill: $white;
+		}
+	}
+
 	// .link {
 	// 	color: $white;
 	// }
@@ -48,4 +55,6 @@ body {
 .light {
 	background-color: $extralight;
 	color: $black;
+
+
 }
