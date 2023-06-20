@@ -6,6 +6,7 @@ import thunkMiddleware, { ThunkAction } from "redux-thunk";
 import { regReducer } from "./registration/reducer";
 import { activationReducer } from "./activation/reducer";
 import { likeReducer } from "./likedPosts/reducer";
+import { authReducer } from "./auth/reducer";
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
 	posts: postsReducer,
 	likes: likeReducer,
 	registration: regReducer,
-	activation: activationReducer
+	activation: activationReducer,
+	auth: authReducer
 })
 
 export const store = configureStore({

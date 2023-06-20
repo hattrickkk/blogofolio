@@ -7,11 +7,6 @@ const initValue: ActivationStateType = {
 
 export const activationReducer = (state: ActivationStateType = initValue, action: ActivationActionType): ActivationStateType => {
 	switch (action.type) {
-		case 'ACTIVATION_SUCCESS':
-			return {
-				isActivated: true,
-				activatedData: action.payload as ActivationType
-			}
 		case 'ACTIVATION_FAILED':
 			return {
 				isActivated: false,

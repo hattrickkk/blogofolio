@@ -37,3 +37,8 @@ export type ActivationType = {
 	uid: string
 	token: string
 }
+
+export type TokensType = {
+	access: string
+	refresh: string
+}

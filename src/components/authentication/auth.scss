@@ -46,6 +46,10 @@
 
 .activation {
 	padding: 72px 0 150px 0;
+
+	.error-label {
+		margin: 0;
+	}
 }
 
 .success {
@@ -165,9 +169,6 @@
 // -----------------------
 
 .inner-box {
-	.error-label {
-		margin: 0;
-	}
 
 	padding: 40px;
 	border: 1px solid $medium;

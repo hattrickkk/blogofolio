@@ -3,8 +3,8 @@ import { ActivationType, ErrorMessageType } from "../models"
 type ActivationResponseType = {
 	ok: boolean
 	status: number
-	// data: ErrorMessageType
-	data?: any
+	// data?: any
+	data?: ErrorMessageType
 }
 
 export const activateUser = async (uid: string, token: string): Promise<ActivationResponseType> => {
@@ -33,7 +33,7 @@ export const activateUser = async (uid: string, token: string): Promise<Activati
 				data: result
 			}
 		}
-		else{
+		else {
 			return {
 				ok: response.ok,
 				status: response.status,
