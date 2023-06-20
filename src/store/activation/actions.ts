@@ -2,12 +2,7 @@ import { AppThunk } from "..";
 import { ActivationType, ErrorMessageType } from "../../models";
 import { activateUser } from "../../services/activateUser";
 
-const successActivation = (activationData: ActivationType) => {
-	return {
-		type: 'ACTIVATION_SUCCESS',
-		payload: activationData
-	}
-}
+
 const failedActivation = (errors: ErrorMessageType) => {
 	return {
 		type: 'ACTIVATION_FAILED',
@@ -23,7 +18,6 @@ export const activationAction = (uid: string, token: string, cb?: () => void): A
 			return dispatch(failedActivation(response.data as ErrorMessageType))
 		}
 
-		dispatch(successActivation(response.data as ActivationType))
 		cb && cb()
 	}
 }

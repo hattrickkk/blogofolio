@@ -69,6 +69,7 @@ const SignUp = () => {
 				state: email
 			})
 			if (username && email && password && (password === confirmPassword)) {
+
 				dispatch(registrationAction(username, email, password, regSuccessFunc))
 			}
 		}

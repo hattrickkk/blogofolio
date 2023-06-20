@@ -13,7 +13,8 @@ const ActivationPage = () => {
 	const { uid, token } = useParams()
 	const dispatch = useDispatch<AppDispatch>()
 	const navigate = useNavigate()
-	debugger
+
+
 	useEffect(() => {
 		const navFunc = () => {
 			navigate('/success')
@@ -28,18 +29,17 @@ const ActivationPage = () => {
 	const errors = useSelector((state: AppState) => state.activation.errors)
 	const activationErrors = errors ? Object.values(errors) : undefined
 
-
 	return (
 		<>
-			<div className='reg-confirmation'>
+			<div className='activation'>
 				<div className='container'>
 					<BackHome />
-					<Title text='Account activation' className='account-activation__title' />
+					<Title text='Account activation' className='activation__title' />
+					<div className='activation__inner-box inner-box'>
+						{activationErrors && (<ErrorLabel text={activationErrors as (string | string[])} />)}
+					</div>
 				</div>
 			</div>
-			{activationErrors && (<ErrorLabel text={activationErrors as (string | string[])} />)}
-			<div>activationPage</div>
-
 		</>
 	)
 }

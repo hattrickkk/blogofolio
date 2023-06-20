@@ -44,6 +44,10 @@
 	}
 }
 
+.activation {
+	padding: 72px 0 150px 0;
+}
+
 .success {
 	padding: 72px 0 392px 0;
 
@@ -51,6 +55,8 @@
 		margin: 0 0 48px 0;
 	}
 }
+
+
 
 .sign-up__button,
 .sign-in__button,
@@ -67,7 +73,8 @@
 .reset-password__title,
 .new-password__title,
 .reg-confirmation__title,
-.success__title {
+.success__title,
+.activation__title {
 	margin: 0 0 72px 0;
 }
 
@@ -80,7 +87,8 @@
 	.reset-password__title,
 	.new-password__title,
 	.reg-confirmation__title,
-	.success__title {
+	.success__title,
+	.activation__title {
 		margin: 0 0 56px 0;
 	}
 
@@ -117,7 +125,8 @@
 	.reset-password__title,
 	.new-password__title,
 	.reg-confirmation__title,
-	.success__title {
+	.success__title,
+	.activation__title {
 		margin: 0 0 48px 0;
 	}
 
@@ -156,6 +165,10 @@
 // -----------------------
 
 .inner-box {
+	.error-label {
+		margin: 0;
+	}
+
 	padding: 40px;
 	border: 1px solid $medium;
 	max-width: 624px;

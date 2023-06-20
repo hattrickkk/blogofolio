@@ -3,7 +3,7 @@ import { ErrorMessageType, UserType } from "../models"
 type RegistrationResponseType = {
 	ok: boolean
 	status: number
-	data: UserType | ErrorMessageType | string
+	data: UserType | ErrorMessageType
 }
 
 export const registrateUser = async (username: string, email: string, password: string): Promise<RegistrationResponseType> => {
@@ -11,7 +11,7 @@ export const registrateUser = async (username: string, email: string, password: 
 	const options = {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-type': 'application/json'
 		},
 		body: JSON.stringify({
 			username,

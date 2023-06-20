@@ -3,16 +3,16 @@ import { ActivationType, ErrorMessageType } from "../models"
 type ActivationResponseType = {
 	ok: boolean
 	status: number
-	data: ActivationType | ErrorMessageType
+	// data: ErrorMessageType
+	data?: any
 }
 
 export const activateUser = async (uid: string, token: string): Promise<ActivationResponseType> => {
-	debugger
 	const url = 'https://studapi.teachmeskills.by/auth/users/activation/'
 	const options = {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-type': 'application/json'
 		},
 		body: JSON.stringify({
 			uid,
@@ -20,16 +20,26 @@ export const activateUser = async (uid: string, token: string): Promise<Activati
 		} as ActivationType)
 	}
 
+	// debugger
 
 	try {
 		const request = new Request(url, options)
 		const response = await fetch(request)
-		const result = await response.json()
-		return {
-			ok: response.ok,
-			status: response.status,
-			data: result as ActivationType
+		if (!response.ok) {
+			const result = await response.json()
+			return {
+				ok: response.ok,
+				status: response.status,
+				data: result
+			}
 		}
+		else{
+			return {
+				ok: response.ok,
+				status: response.status,
+			}
+		}
+
 	} catch (error: any) {
 		return {
 			ok: false,
