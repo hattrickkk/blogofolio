@@ -1,5 +1,39 @@
 @use '../../styles/variable.scss' as *;
 
+.post {
+	.button {
+		&.like {
+			padding: 0 10px 0 0;
+		}
+
+		&.dislike {
+			padding: 0 10px 0 30px;
+		}
+	}
+}
+
+.single-post {
+	.button {
+		background-color: $light;
+
+		&.like.liked {
+			background-color: $primary;
+
+			svg path {
+				fill: $white;
+			}
+		}
+
+		&.dislike.disliked {
+			background-color: $error;
+
+			svg path {
+				fill: $white;
+			}
+		}
+	}
+}
+
 .button {
 	// max-width: 300px;
 	transition: 0.3s ease all;
@@ -9,10 +43,12 @@
 	line-height: 24px;
 	letter-spacing: 0.2px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
 
 	&.like {
-		padding: 0 10px 0 0;
-
 		&.liked {
 			svg path {
 				fill: $primary;
@@ -21,32 +57,12 @@
 	}
 
 	&.dislike {
-		padding: 0 10px 0 30px;
-
 		&.disliked {
 			svg path {
 				fill: $error;
 			}
 		}
 	}
-
-	// &.like {
-	// 	background: url('../../assets/images/Up-black.svg') center no-repeat;
-
-	// 	&.like--hover:enabled:hover {
-	// 		background-color: $primary2;
-	// 		background-image: url('../../assets/images/Up-white.svg');
-	// 	}
-	// }
-
-	// &.dislike {
-	// 	background: url('../../assets/images/Down-black.svg') center no-repeat;
-
-	// 	&.dislike--hover:enabled:hover {
-	// 		background-color: $error;
-	// 		background-image: url('../../assets/images/Down-white.svg');
-	// 	}
-	// }
 
 	&.primary {
 		&:enabled:hover {

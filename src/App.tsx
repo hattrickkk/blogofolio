@@ -1,14 +1,8 @@
 
-import UserComponent from './components/header/UserComponent';
-
-import PrimaryButton from './IU/button/PrimaryButton';
-import SecondaryButton from './IU/button/SecondaryButton';
-import Secondary2Button from './IU/button/Secondary2Button';
-
 import Tabs from './components/tabs/tabs';
 
 
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useBeforeUnload } from 'react-router-dom'
 import Layout from "./components/layout/Layout"
 
 import SignInPage from './pages/SignInPage';
@@ -21,16 +15,35 @@ import { useSelector } from 'react-redux';
 import { AppState } from './store';
 import { selectThemeState } from './store/theme/selectors';
 import ActivationPage from './pages/ActivationPage';
+import SinglePostPage from './pages/singlePostPage/SinglePostPage';
+import { useCallback, useEffect } from 'react';
 
 
 function App() {
   const themeState = useSelector(selectThemeState)
+  const likedPosts = useSelector((state: AppState) => state.likes.list)
+
+  // localStorage.clear()
+
+  // useBeforeUnload(useCallback(() => {
+  //   localStorage.setItem('LIKED_POSTS', JSON.stringify(likedPosts || []))
+  // }, [likedPosts]))
+
+  // useEffect(() => {
+  //   console.log(localStorage.getItem('LIKED_POSTS') || {})
+  // }, [])
+
+
+
   return (
     <div className={themeState.theme}>
 
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Tabs />} />
+
+          <Route path='posts/singlePage/:postId' element={<SinglePostPage />} />
+
           <Route path='sign-in' element={<SignInPage />} />
           <Route path='sign-up' element={<SignUpPage />} />
           <Route path='reset-password' element={<ResetPasswordPage />} />
@@ -41,41 +54,6 @@ function App() {
           <Route path='success' element={<SuccessPage />} />
         </Route>
       </Routes>
-
-
-
-      {/* 
-      <Header />
-
-      <Tabs />
-
-      <Pagination />
-
-      <PrimaryButton
-        value='Primary'
-        onClick={() => console.log('sd')}
-      />
-      <PrimaryButton
-        value='Primary'
-        disabled={true}
-      />
-
-      <SecondaryButton
-        value='Secondary'
-      />
-      <SecondaryButton
-        value='Secondary'
-        disabled={true}
-      />
-
-      <Secondary2Button
-        value='Secondary2'
-      />
-      <Secondary2Button
-        value='Secondary2'
-        disabled={true}
-      /> */}
-
     </div>
   )
 }

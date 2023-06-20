@@ -12,6 +12,8 @@ export type PostType = {
 	dislikes: number
 	isLiked: boolean
 	isDisliked: boolean
+
+	isFavorite: boolean
 }
 
 export type UserType = {

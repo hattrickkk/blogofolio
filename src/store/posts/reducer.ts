@@ -1,21 +1,30 @@
 import { PostType } from "../../models";
 import { PostsActionType, PostsStateType } from "./types";
 
+
+// const likedPosts: PostType[] = JSON.parse(localStorage.getItem('LIKED_POSTS') as string) || []
+
 const initValue: PostsStateType = {
 	list: []
 }
 
 export const postsReducer = (state: PostsStateType = initValue, action: PostsActionType): PostsStateType => {
+	const likedPosts: PostType[] = JSON.parse(localStorage.getItem('LIKED_POSTS') as string) || []
+
 	switch (action.type) {
 		case 'LOAD_POSTS':
 			return {
 				list: (action.payload as PostType[]).map(item => {
+					const likeOptions = likedPosts.length ? likedPosts.find(elem => elem.id === item.id) : undefined
+					const isCurrentLiked = likeOptions ? true : false
+
 					return {
 						...item,
 						likes: Math.round(Math.random() * (1000)),
 						dislikes: Math.round(Math.random() * 100),
-						isLiked: false,
-						isDisliked: false
+						isLiked: isCurrentLiked,
+						isDisliked: false,
+						isFavorite: false
 					}
 				})
 			}

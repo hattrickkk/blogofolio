@@ -46,15 +46,27 @@ body {
 		}
 	}
 
-	// .link {
-	// 	color: $white;
-	// }
+	.post .post__title {
+		color: $white;
+	}
 
+	.tabs .tabs__item.active {
+		&:hover {
+			color: $white;
+		}
+
+		&::before {
+			background-color: $white;
+		}
+	}
 }
+
+// 	// .link {
+// 	// 	color: $white;
+// 	// }
+// }
 
 .light {
 	background-color: $extralight;
 	color: $black;
-
-
 }

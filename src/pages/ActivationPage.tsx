@@ -13,7 +13,7 @@ const ActivationPage = () => {
 	const { uid, token } = useParams()
 	const dispatch = useDispatch<AppDispatch>()
 	const navigate = useNavigate()
-
+	debugger
 	useEffect(() => {
 		const navFunc = () => {
 			navigate('/success')

@@ -5,11 +5,13 @@ import { postsReducer } from "./posts/reducer";
 import thunkMiddleware, { ThunkAction } from "redux-thunk";
 import { regReducer } from "./registration/reducer";
 import { activationReducer } from "./activation/reducer";
+import { likeReducer } from "./likedPosts/reducer";
 
 
 const rootReducer = combineReducers({
 	themeReducer: themeReducer,
 	posts: postsReducer,
+	likes: likeReducer,
 	registration: regReducer,
 	activation: activationReducer
 })

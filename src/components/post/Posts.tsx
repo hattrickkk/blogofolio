@@ -132,20 +132,17 @@ const Posts = () => {
 	const postsState = useSelector(selectPosts)
 	const dispatch = useDispatch<AppDispatch>()
 
+
 	useEffect(() => {
-		// getPosts().then(res => dispatch(loadPosts(res)))
-		// dispatch(loadPosts2())
 		dispatch(loadPosts())
 	}, [])
-
-
 
 	const arrOfSizes: Sizetype[] = ['big', 'small', 'small', 'medium', 'medium', 'small', 'small', 'medium', 'medium', 'small', 'small']
 
 	return (
 		<div className='postContainer'>
 			{postsState.list.map((elem, i) => (
-				<PostContent
+				< PostContent
 					size={arrOfSizes[i]}
 					post={elem}
 					key={elem.id}

@@ -1,6 +1,6 @@
 import './button.scss'
 
-type TypeBtn = 'primary' | 'secondary2' | 'secondary' | 'like' | 'dislike'
+type TypeBtn = 'primary' | 'secondary2' | 'secondary' 
 
 type PropsType = {
 	value?: string
