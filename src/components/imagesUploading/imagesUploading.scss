@@ -1,0 +1,82 @@
+@use '../../styles/variable.scss' as *;
+
+.images-uploading {
+	&__title {
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
+		margin: 0 0 8px 0;
+	}
+
+	.upload__image-wrapper {
+		display: flex;
+		justify-content: space-between;
+
+
+		.upload__text {
+			&:focus {
+				outline: 2px solid $medium;
+			}
+
+			&.error {
+				border: 2px solid $error;
+			}
+
+			flex: 1 1 60%;
+
+			background-color:$white;
+			border-radius: 2px;
+			font-size: 16px;
+			line-height: 20px;
+			padding: 18px 20px;
+		}
+
+		.image-item {
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			&__filename {
+				max-width: 300px;
+				max-height: 20px;
+				overflow: hidden;
+			}
+
+			&__del-btn {
+
+				span {
+					margin: 0 0 0 -30px;
+					position: relative;
+					align-self: center;
+					display: inline-flex;
+
+					&::after,
+					&::before {
+						content: '';
+						background-color: $error;
+						width: 15px;
+						height: 3px;
+						position: absolute;
+						// transform: translateY(50%);
+						// top: 50%;
+					}
+
+					&::after {
+						transform: translateY(-6px) rotate(45deg);
+					}
+
+					&::before {
+						transform: translateY(-6px) rotate(-45deg);
+					}
+				}
+
+				color: $error;
+				background-color: transparent;
+				font-size: 23px;
+				font-weight: 700;
+				line-height: 0;
+			}
+		}
+	}
+}

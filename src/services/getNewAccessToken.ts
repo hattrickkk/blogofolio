@@ -1,26 +1,27 @@
-import { ErrorMessageType, TokensType } from "../models"
+import { Token } from "typescript"
+import { ErrorMessageType } from "../models"
 
-
-type AuthResponseType = {
+type ResponseType = {
 	ok: boolean
 	status: number
-	data: TokensType | ErrorMessageType
+	data: {
+		access: string
+	} | ErrorMessageType
 }
 
-export const logIn = async (email: string, password: string): Promise<AuthResponseType> => {
-
-	const url = 'https://studapi.teachmeskills.by/auth/jwt/create/'
+export const getNewAcccessToken = async (refreshToken: string): Promise<ResponseType> => {
+	debugger
+	const url = 'https://studapi.teachmeskills.by/auth/jwt/refresh/'
 	const options = {
 		method: 'POST',
 		headers: {
 			'Content-type': 'application/json'
 		},
 		body: JSON.stringify({
-			email,
-			password
+			refresh: refreshToken,
 		})
 	}
-
+	console.log(options.body)
 	try {
 		const request = new Request(url, options)
 		const response = await fetch(request)
@@ -28,13 +29,13 @@ export const logIn = async (email: string, password: string): Promise<AuthRespon
 		return {
 			ok: response.ok,
 			status: response.status,
-			// data: result as (TokensType | ErrorMessageType)
 			data: result
 		}
+
 	} catch (error: any) {
 		return {
 			ok: false,
-			status: 400,
+			status: 444,
 			data: error.message
 		}
 	}

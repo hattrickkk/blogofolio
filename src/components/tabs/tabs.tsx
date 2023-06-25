@@ -8,10 +8,8 @@ const Tabs = () => {
 	return (
 		<TabsContextProvider>
 			<div className='tabs'>
-				<div className="container">
-					<TabHeader />
-					<TabContent />
-				</div>
+				<TabHeader />
+				<TabContent />
 			</div>
 		</TabsContextProvider>
 	)

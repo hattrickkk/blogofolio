@@ -47,6 +47,9 @@
 
 		.post__text {
 			line-height: 28px;
+			max-height: 230px;
+			overflow: hidden;
+			text-overflow: ellipsis
 		}
 	}
 

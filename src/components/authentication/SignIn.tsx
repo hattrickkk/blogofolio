@@ -11,7 +11,7 @@ import { ErrorMessageType, FormErrorsType } from '../../models'
 import ErrorLabel from '../errorLabel/ErrorLabel'
 import { useDispatch } from 'react-redux'
 import { AppDispatch, AppState } from '../../store'
-import { authAction } from '../../store/auth/actions'
+import { authAction, clearAuthStoreAction } from '../../store/auth/actions'
 import { useSelector } from 'react-redux'
 
 type FormType = {
@@ -19,6 +19,7 @@ type FormType = {
 	password: string
 }
 const SignIn = () => {
+
 	const v = new FastestValidator();
 	const check = v.compile({
 		email: "string",
@@ -28,6 +29,10 @@ const SignIn = () => {
 	const dispatch = useDispatch<AppDispatch>()
 	const navigate = useNavigate()
 	const errorsFromAuth = useSelector((state: AppState) => state.auth.errors)
+
+	useEffect(() => {
+		dispatch(clearAuthStoreAction())
+	}, [])
 
 
 	const [form, setForm] = useState<FormType>({

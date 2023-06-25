@@ -19,6 +19,10 @@ export const authReducer = (state: AuthStateType = initValue, action: AuthAction
 				isAuth: false,
 				errors: action.payload as ErrorMessageType
 			}
+		case authActionName.AUTH_CLEAR:
+			return {
+				isAuth: false,
+			}
 		default:
 			return state
 	}

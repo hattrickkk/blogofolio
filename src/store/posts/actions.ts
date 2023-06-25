@@ -11,7 +11,7 @@ export const setPosts = (posts: PostType[]) => {
 
 export const loadPosts = (): AppThunk => {
 	return async (dispatch) => {
-		const posts = await getPosts(11, 150)
+		const posts = await getPosts(11, 494)
 		dispatch(setPosts(posts as PostType[]))
 	}
 }

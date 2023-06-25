@@ -17,6 +17,8 @@ import { selectThemeState } from './store/theme/selectors';
 import ActivationPage from './pages/ActivationPage';
 import SinglePostPage from './pages/singlePostPage/SinglePostPage';
 import { useCallback, useEffect } from 'react';
+import CreatePostPage from './pages/createPostPage/CreatePostPage';
+import HomePage from './pages/HomePage/HomePage';
 
 
 function App() {
@@ -40,7 +42,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Tabs />} />
+          <Route index element={<HomePage />} />
 
           <Route path='posts/singlePage/:postId' element={<SinglePostPage />} />
 
@@ -52,6 +54,8 @@ function App() {
           <Route path='registration-confirmation' element={<RegistrationConfirmationPage />} />
           <Route path='activate/:uid/:token' element={<ActivationPage />} />
           <Route path='success' element={<SuccessPage />} />
+
+          <Route path='create-post' element={<CreatePostPage />} />
         </Route>
       </Routes>
     </div>

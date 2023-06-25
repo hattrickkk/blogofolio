@@ -46,7 +46,7 @@ const SinglePost = ({ post }: PropsType) => {
 
 	return (
 		<div className='single-post'>
-			<h2 className='single-post__title'>{post.title}</h2>
+			<h2 className='single-post__title title'>{post.title}</h2>
 			<div className='single-post__container'>
 				<img className='single-post__image' src={post.image} alt={post.title} />
 				<p className='single-post__text'>{post.text}</p>
@@ -64,7 +64,7 @@ const SinglePost = ({ post }: PropsType) => {
 				<div className='single-post__icons'>
 					<div className='single-post__icons-reactions'>
 						<LikeButton isLiked={isLiked} clickHandler={clickLikeButton} />
-						<DislikeButton isDisliked={post.isDisliked} clickHandler={() => {}} />
+						<DislikeButton isDisliked={post.isDisliked} clickHandler={() => { }} />
 					</div>
 					<AddFavoritesButton isFavorite={post.isFavorite} clickHandler={() => { }} />
 				</div>

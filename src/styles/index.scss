@@ -46,9 +46,11 @@ body {
 		}
 	}
 
-	.post .post__title {
+	.post .post__title,
+	.title {
 		color: $white;
 	}
+
 
 	.tabs .tabs__item.active {
 		&:hover {
