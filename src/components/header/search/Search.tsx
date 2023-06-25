@@ -1,23 +1,16 @@
-import React, { FormEvent, useEffect, useRef, useState } from 'react'
-import SearchIconComponent from './iconComponents/SearchIconComponent'
+import React, { ChangeEvent, useState } from 'react'
+import SearchIconComponent from './SearchIconComponent'
 import SearchInput from './SearchInput'
 
 
 const Search = () => {
-
 	const [isInputEmpty, setIsInputEmpty] = useState<boolean>(true)
 	const [inputValue, setInputValue] = useState<string>('')
+	const [isOpen, setIsOpen] = useState<boolean>(false)
 
-	const searchInputRef = useRef<HTMLInputElement>(null)
-	const searchRef = useRef<HTMLDivElement>(null)
-
-	const searchInputChange = (e: FormEvent<HTMLInputElement>) => {
-		(searchInputRef.current?.value === '') ? setIsInputEmpty(true) : setIsInputEmpty(false)
+	const searchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		(e.target.value === '') ? setIsInputEmpty(true) : setIsInputEmpty(false)
 		setInputValue(e.currentTarget.value)
-	}
-
-	const seacrhBtnClick = () => {
-		searchRef.current?.classList.toggle('active')
 	}
 
 	const deleteTextSearchClick = () => {
@@ -25,17 +18,24 @@ const Search = () => {
 		setIsInputEmpty(true)
 	}
 
+	const searchClick = () => {
+		if (isOpen) {
+			// навигейт ту поиск педж??
+		}
+
+		setIsOpen(prev => !prev)
+		// console.log(isOpen)
+	}
+
 	return (
 		<div className='header__search search'>
 			<div className='search__inner'>
 				<div
-					className='search__field'
-					ref={searchRef}
+					className={isOpen ? 'search__field active' : 'search__field'}
 				>
 					<SearchInput
 						value={inputValue}
 						onChange={searchInputChange}
-						reff={searchInputRef}
 					/>
 					<div
 						onClick={deleteTextSearchClick}
@@ -44,8 +44,7 @@ const Search = () => {
 					></div>
 				</div>
 				<SearchIconComponent
-					onClick={seacrhBtnClick}
-					className='search-btn'
+					onClick={searchClick}
 				/>
 			</div>
 		</div >

@@ -2,36 +2,33 @@ import React, { useRef, useState } from 'react'
 import BurgerButton from './BurgerButton'
 
 import './header.scss'
-import UserIconComponent from './iconComponents/UserIconComponent'
 import UserComponent from './UserComponent'
-import Search from './Search'
-import BurgerMenu from './BurgerMenu/BurgerMenu'
+import Search from './search/Search'
+import BurgerMenu from './BurgerMenu'
+import { useSelector } from 'react-redux'
+import { AppState } from '../../store'
+import UnauthorizedUserComponent from './UnauthorizedUserComponent'
+import { authSelector } from '../../store/auth/selectors'
 
 
 
 const Header = () => {
-
 	const [isOpen, setIsOpen] = useState<boolean>(false)
-
-	const burgerButtonRef = useRef<HTMLDivElement>(null)
-	const burgerBtnClick = () => {
-		burgerButtonRef.current?.classList.toggle('active')
-		setIsOpen(prev => !prev)
-	}
+	const authState = useSelector(authSelector)
 
 	return (
 		<div className='header'>
 			<div className='container1920'>
 				<div className='header__inner'>
 					<BurgerButton
-						onCLick={burgerBtnClick}
-						reff={burgerButtonRef}
+						onCLick={() => { setIsOpen(prev => !prev) }}
+						clasName={isOpen ? 'active' : ''}
 					/>
 					<Search />
 
-					{(true)
-						? <UserIconComponent />
-						: <UserComponent userName='Darya Khitrik' />
+					{!authState.isAuth
+						? <UnauthorizedUserComponent />
+						: <UserComponent userName='Darya hitrik' />
 					}
 
 				</div>

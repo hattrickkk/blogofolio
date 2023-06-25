@@ -2,15 +2,14 @@ import React, { LegacyRef } from 'react'
 
 type Props = {
 	onCLick: () => void
-	reff: null | LegacyRef<HTMLDivElement>
+	clasName: string
 }
 
-const BurgerButton = ({ reff, onCLick }: Props) => {
+const BurgerButton = ({ clasName, onCLick }: Props) => {
 	return (
 		<div
 			onClick={onCLick}
-			ref={reff}
-			className='header__burger-button'
+			className={clasName ? 'header__burger-button active' : 'header__burger-button'}
 		>
 			<span></span>
 		</div>

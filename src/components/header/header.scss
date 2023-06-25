@@ -1,8 +1,10 @@
 @use '../../styles/variable.scss' as *;
 
-
 .header {
 	background-color: $primary;
+	position: fixed;
+	z-index: 50;
+	width: 100%;
 
 	&__inner {
 		position: relative;
@@ -103,10 +105,6 @@
 			border-bottom: none;
 			border-top: none;
 		}
-
-		img {
-			max-width: 27px;
-		}
 	}
 
 	// search
@@ -192,11 +190,15 @@
 
 	// menu
 	.menu {
+		.header__userComponent {
+			width: 100%;
+		}
+
 		border-top: 3px solid $primary2;
 		position: absolute;
 		z-index: 1;
 		background-color: $white;
-		// width: 200px;
+		max-width: 230px;
 		height: 100vh;
 		transition: 0.4s ease;
 
@@ -206,6 +208,71 @@
 
 		&.close {
 			left: -100%;
+		}
+
+
+		&__items {
+			display: flex;
+			flex-direction: column;
+			height: 90%;
+		}
+
+		&__top {
+			flex: 1 1 auto;
+		}
+
+		&__botom {
+			align-self: self-end;
+		}
+
+		&-item-link {
+			&:hover {
+				color: $primary;
+			}
+
+			transition: 0.3s ease all;
+			font-family: Inter;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 24px;
+			display: inline-block;
+			padding: 30px 10px;
+			text-align: center;
+			width: 100%;
+			color: $black;
+			border-bottom: 2px $light solid;
+		}
+
+		&__theme-buttons {
+			display: flex;
+
+			.theme-btn {
+				svg {
+					path {
+						fill: $medium;
+					}
+				}
+
+				&.active {
+					svg {
+						path {
+							fill: $black;
+						}
+					}
+				}
+
+				flex: 1 1 50%;
+				padding: 28px 40px;
+				background-color: $white;
+				border: 2px $light solid;
+				border-right: none;
+			}
+		}
+
+		&-auth-btn {
+			width: 100%;
+			font-size: 16px;
+			padding: 30px 10px;
 		}
 	}
 

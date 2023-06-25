@@ -5,15 +5,15 @@ type UserComponentType = {
 }
 
 const UserComponent = ({ userName }: UserComponentType) => {
-	const iconUserName = userName
-		.split(' ')
-		.map(elem => elem[0])
-		.join('')
-		.toUpperCase()
+	const iconName = userName.split(' ').length > 1
+		? userName.split(' ').map(elem => elem[0])
+			.join('')
+			.toUpperCase()
+		: (userName[0] + userName[1]).toUpperCase()
 
 	return (
 		<div className='header__userComponent'>
-			<div className='iconUserName'>{iconUserName}</div>
+			<div className='iconUserName'>{iconName}</div>
 			<p className='userName'>{userName}</p>
 		</div>
 	)
